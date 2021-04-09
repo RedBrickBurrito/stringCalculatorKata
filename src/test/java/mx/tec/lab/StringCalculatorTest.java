@@ -34,6 +34,13 @@ class StringCalculatorTest {
 		assertEquals(expectedResult, actualResult);
 	}
 	
-
+	@Test
+	void testGivenCalculatorWhenAdd1_2_4_4_2NumbersThen13() {
+		int expectedResult = 13;
+		String numbers = "1,2,4,4,2";
+		
+		int actualResult = calculator.add(numbers);
+		assertEquals(expectedResult, actualResult);
+	}
 
 }
