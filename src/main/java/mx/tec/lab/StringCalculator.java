@@ -1,5 +1,8 @@
 package mx.tec.lab;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 	
 	public int add(String numbers) {
@@ -15,10 +18,18 @@ public class StringCalculator {
 				sanitizedNumbers = numbers.substring(4);
 			}
 			String[] splitNumbers = sanitizedNumbers.split("\\n|" + delimeter);
-			
+			List<Integer> negativeNumbers = new ArrayList<>();
 			int sum = 0;
 			for(String s: splitNumbers) {
-				sum += Integer.parseInt(s);
+				int number = Integer.parseInt(s);
+				if(number < 0) {
+					negativeNumbers.add(number);
+				}
+				sum += number;
+			}
+			
+			if(!negativeNumbers.isEmpty()) {
+				throw new UnsupportedOperationException("negatives not allowed " + negativeNumbers);
 			}
 			return sum;
 		}
